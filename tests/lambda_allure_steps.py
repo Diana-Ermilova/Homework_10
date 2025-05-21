@@ -1,8 +1,14 @@
 import allure
 from selene import browser, by, be
 from selene.support.shared.jquery_style import s
+from allure_commons.types import Severity
 
 def test_open_browser():
+    allure.dynamic.tag("web")
+    allure.dynamic.severity(Severity.BLOCKER)
+    allure.dynamic.feature("Задачи в репозитории")
+    allure.dynamic.story("Неавторизованный пользователь не может создать задачу в репозитории")
+    allure.dynamic.link("https://github.com", name="Testing")
 
     with allure.step("GitHub main page open"):
         browser.open("https://github.com")
